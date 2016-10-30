@@ -14,6 +14,6 @@ class DefinitionAttachment(models.Model):
 
 
 class Result(models.Model):
-    file = models.FileField(upload_to='lab-definitions')
+    file = models.FileField(upload_to='lab-results')
     lab = models.ForeignKey(Lab)
     student = models.ForeignKey('auth.User')
