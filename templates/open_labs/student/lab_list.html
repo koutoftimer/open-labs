@@ -1,0 +1,10 @@
+{% for group in request.user.group_set.all %}
+    <h3>Group: {{ group.name }}</h3>
+    <ul>
+        {% for lab in group.labs.all %}
+            {{ lab.title }}
+            <a href="{% url 'view_lab' lab.id %}" class="btn btn-default">View</a>
+            <a href="{% url 'submit_lab' lab.id %}" class="btn btn-default">Submit result</a>
+        {% endfor %}
+    </ul>
+{% endfor %}

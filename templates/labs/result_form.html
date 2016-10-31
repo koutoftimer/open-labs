@@ -1,0 +1,20 @@
+{% extends 'open_labs/base.html' %}
+
+{% load bootstrap3 %}
+
+{% block bootstrap3_content %}
+{{ block.super }}
+<div class="container">
+    {% if form.is_multipart %}
+    <form enctype="multipart/form-data" class="form" method="post">
+    {% else %}
+    <form class="form" method="post">
+    {% endif %}
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <input type="submit" value="Submit" class="btn btn-primary"/>
+        {% endbuttons %}
+    </form>
+</div>
+{% endblock %}

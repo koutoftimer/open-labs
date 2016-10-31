@@ -1,0 +1,14 @@
+{% extends 'open_labs/base.html' %}
+
+{% block bootstrap3_content %}
+    {{ block.super }}
+    <div class="container">
+    {% if student in request.user.groups.all %}
+        {% include 'open_labs/student/lab_list.html' %}
+    {% elif teacher in request.user.groups.all %}
+        teacher
+    {% else %}
+        no group
+    {% endif %}
+    </div>
+{% endblock %}
